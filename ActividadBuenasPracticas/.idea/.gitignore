@@ -1,0 +1,10 @@
+# Default ignored files
+/../../ActividadBuenasPracticas./.idea/shelf/
+/../../ActividadBuenasPracticas./.idea/workspace.xml
+# Ignored default folder with query files
+/../../ActividadBuenasPracticas./.idea/queries/
+# Datasource local storage ignored files
+/../../ActividadBuenasPracticas./.idea/dataSources/
+/../../ActividadBuenasPracticas./.idea/dataSources.local.xml
+# Editor-based HTTP Client requests
+/../../ActividadBuenasPracticas./.idea/httpRequests/
