@@ -1,7 +1,10 @@
+import java.sql.SQLOutput;
 import java.util.Random;
 import java.util.Scanner;
 
 public class App {
+    public static int fueraDelRango = 0;
+    public static int datoNoNumerico = 0;
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
@@ -20,6 +23,8 @@ public class App {
             if (numero == secreto) {
                 System.out.println("ganaste!!! adivinaste el número en el intento:"+intentos);
                 gano = true; //para saber si gano
+                System.out.println("Las veces que te saliste del rango fueron:"+ fueraDelRango);
+                System.out.println("las veces que ingresaste un dato no numerico fueron:"+ datoNoNumerico);
                 break;
             }else if (numero >secreto){
                 System.out.println("El numero que buscas es menor a"+ numero);
@@ -29,6 +34,8 @@ public class App {
         }
         if (!gano){
             System.out.println("perdiste, el numero secreto es "+ secreto);
+            System.out.println("Las veces que te saliste del rango fueron:"+ fueraDelRango);
+            System.out.println("las veces que ingresaste un dato no numerico fueron:"+ datoNoNumerico);
         }
     }
     public static int obtenerNumeroValido(Scanner sc, String mensaje, int min, int max){
@@ -42,10 +49,12 @@ public class App {
                     return valor;
                 }else {
                     System.out.println("el dato ingresado no está dentro del rango");
+                    fueraDelRango ++;
                 }
             }else {
                 System.out.println("El dato ingresado no es numerico");
                 sc.next(); //para limpiar lo que ingrese el usuario
+                datoNoNumerico ++;
             }
         }
     }
