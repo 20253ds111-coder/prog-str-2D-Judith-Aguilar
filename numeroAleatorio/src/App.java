@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -43,7 +42,7 @@ public class App {
         while (true) {
             System.out.println(mensaje);
             if (sc.hasNextInt()){
-                //Es un dato numerico
+                //Es un dato numerico025
                 valor = sc.nextInt();
                 if (valor >= min && valor <= max){
                     return valor;
