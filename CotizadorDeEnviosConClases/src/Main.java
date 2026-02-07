@@ -22,7 +22,6 @@ public class Main {
     public static void imprimirTicket(int servicio, double peso, int distancia, boolean remota, double sub, double iva, double total) {
         System.out.println("ticket de envio");
         System.out.print("Servicio: ");
-        if(servicio == 1) System.out.println("Estándar"); else System.out.println("Express");
 
         System.out.println("Peso: "+ peso +" Kg");
         System.out.println("Distancia: "+ distancia +" Km");
