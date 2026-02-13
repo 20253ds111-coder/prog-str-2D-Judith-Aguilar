@@ -4,28 +4,33 @@ public class Ticket {
 
     private final double IVA=0.16;
     private final double PRECIO_PRODUCTO=10;
-    public double total;
     public double subtotal;
+    public double total;
 //private final double DESCUENTO=0.10;
 
-    public double calcularSubtotal(int cantidad){
-        return cantidad*PRECIO_PRODUCTO;
+    public void process(int cantidad){
+        calcularSubtotal(cantidad);
+        calcularTotal();
     }
 
-    public double calcularIva(double subtotal){
-        return subtotal*IVA;
+    private void calcularSubtotal(int cantidad){
+        this.subtotal = cantidad*PRECIO_PRODUCTO;
     }
 
-    public double calcularTotal(double subtotal){
-        return subtotal + calcularIva(subtotal);
+    private double calcularIva(){
+        return this.subtotal*IVA;
     }
 
-    public void imprimirTicket(int cantidad, double subtotal, double ivaCalculado, double total){
+    private void calcularTotal(){
+        this.total= subtotal + calcularIva();
+    }
+
+    public void imprimirTicket(int cantidad){
 
         System.out.println("Cantidad: "+cantidad);
-        System.out.println("Subtotal: "+subtotal);
-        System.out.println("Iva: "+ivaCalculado);
-        System.out.println("Total: "+total);
+        System.out.println("Subtotal: "+this.subtotal);
+        System.out.println("Iva: "+calcularIva());
+        System.out.println("Total: "+this.total);
 
     }
 }
