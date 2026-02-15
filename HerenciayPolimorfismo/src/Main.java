@@ -1,6 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-
 //Herencia
         Perro dogo= new Perro("Dogo");
         Gato rawrl = new Gato("rawrl");
@@ -28,7 +27,5 @@ public class Main {
             Perro miercoles1= (Perro) miercoles;
             miercoles1.marcarTerritorio();
         }
-
-
     }
 }
