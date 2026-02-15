@@ -1,7 +1,5 @@
 import java.util.Scanner;
-
 public class ValidarDatos {
-
     public int validarId(Scanner scanner, String mensaje){
         int valor = 0;
         while (true){
@@ -19,11 +17,9 @@ public class ValidarDatos {
             }
         }
     }
-
     public String validarNombre(Scanner scanner, String mensaje){
         String valor = "";
         while (true){
-
             System.out.print(mensaje);
             valor = scanner.next();
             if (!(valor.isEmpty())){
@@ -34,7 +30,6 @@ public class ValidarDatos {
             }
         }
     }
-
     public double validarPromedio(Scanner scanner, String mensaje){
         double valor = 0;
         while (true){

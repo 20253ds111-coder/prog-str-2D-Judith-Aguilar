@@ -33,7 +33,7 @@ public class ProcesoAlumnos {
         boolean alumnoEncontrado = false;
         int id = validarDatos.validarId(scanner, "Ingresar el ID a buscar");
         for (int i = 0; i <= alumnos.length; i++) {
-            if (alumnos[i].getId() == id){
+            if (alumnos[i] != null && alumnos[i].getId() == id){
                 System.out.println(alumnos[i]);
                 alumnoEncontrado = true;
                 break;
