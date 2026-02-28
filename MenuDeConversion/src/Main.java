@@ -18,7 +18,7 @@ public class Main {
             System.out.println("  4) Millas a Km");
             System.out.println("  5) Salir");
 
-            // Usamos tu método de validación para la opción
+            // Usamos tu metodo de validación para la opción
             opcion = obtenerNumeroValido(sc, "Seleccione una opción:");
 
             switch (opcion) {
