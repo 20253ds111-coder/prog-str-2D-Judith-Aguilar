@@ -10,6 +10,7 @@ public class PersonServices {
     private PersonFileRepository repo = new PersonFileRepository();
 
     public List<String> loadDataForList() throws IOException {
+<<<<<<< HEAD
         List<String> lines = repo.readAllLines();
         List<String> result = new ArrayList<>();
         for (String line : lines){
@@ -50,4 +51,18 @@ public class PersonServices {
             throw new IllegalArgumentException("la edad no es válida");
         }
     }
+=======
+        List<String> lines = repo.readAllLines(); //Recupera las lineas de archivo
+        List<String> result = new ArrayList<>();//Listado de resultado con el formato deseado
+        for (String line : lines){
+            if (line==null || line.isBlank()) continue; //Ignora las lineas nulas
+
+            String[] parts = line.split(",", -1);
+            String name = parts[0].trim(); // Obtiee el nombre del arreglo
+            String correo = parts[1].trim(); //Obtiene el correo del arreglo
+            result.add(name+"-"+correo);//Se agrega a la lista de resultados con el formato
+        }
+        return result;
+    }
+>>>>>>> f904ef582e87db45768f78743f98609296d98ccb
 }

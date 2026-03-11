@@ -6,8 +6,11 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+<<<<<<< HEAD
 import javafx.scene.control.TextField;
 
+=======
+>>>>>>> f904ef582e87db45768f78743f98609296d98ccb
 import java.io.IOException;
 import java.util.List;
 
@@ -16,12 +19,15 @@ public class AppController {
     private ListView<String> listView;
     @FXML
     private Label lblMsg;
+<<<<<<< HEAD
     @FXML
     private TextField txtName;
     @FXML
     private TextField txtEmail;
     @FXML
     private TextField txtEdad;
+=======
+>>>>>>> f904ef582e87db45768f78743f98609296d98ccb
 
     @FXML
     private final ObservableList<String> data = FXCollections.observableArrayList();
@@ -35,6 +41,7 @@ public class AppController {
         loadFromFile();
     }
 
+<<<<<<< HEAD
     @FXML
     public void onAddPerson() throws IOException {
         try {
@@ -57,6 +64,8 @@ public class AppController {
         }
     }
 
+=======
+>>>>>>> f904ef582e87db45768f78743f98609296d98ccb
     private void loadFromFile(){
         try{
             List<String> items = service.loadDataForList();
