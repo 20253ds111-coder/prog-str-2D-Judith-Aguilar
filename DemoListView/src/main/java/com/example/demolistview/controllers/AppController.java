@@ -6,11 +6,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-<<<<<<< HEAD
 import javafx.scene.control.TextField;
 
-=======
->>>>>>> f904ef582e87db45768f78743f98609296d98ccb
 import java.io.IOException;
 import java.util.List;
 
@@ -19,15 +16,12 @@ public class AppController {
     private ListView<String> listView;
     @FXML
     private Label lblMsg;
-<<<<<<< HEAD
     @FXML
     private TextField txtName;
     @FXML
     private TextField txtEmail;
     @FXML
     private TextField txtEdad;
-=======
->>>>>>> f904ef582e87db45768f78743f98609296d98ccb
 
     @FXML
     private final ObservableList<String> data = FXCollections.observableArrayList();
@@ -37,11 +31,17 @@ public class AppController {
     @FXML
     public void initialize(){ //Se ejecuta al inicio en cuanto se cargue el controller
         //Inicializar ListView
+        listView.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) ->{
+            loadDataToForm(newValue);
+                }
+
+        );
         listView.setItems(data);
         loadFromFile();
     }
 
-<<<<<<< HEAD
+
+
     @FXML
     public void onAddPerson() throws IOException {
         try {
@@ -55,17 +55,41 @@ public class AppController {
             txtEmail.clear();
             txtEdad.clear();
             loadFromFile();
+
         }catch (IOException e){
             lblMsg.setText("Hubo un error ");
             lblMsg.setStyle("-fx-text-fill: red");
+
         }catch (IllegalArgumentException ex){
-            lblMsg.setText("Hubo un error con los datos ");
+            lblMsg.setText(ex.getMessage());
+            lblMsg.setStyle("-fx-text-fill: red");
+        }
+    }
+    @FXML
+    public void onUpdate() {
+        int index = listView.getSelectionModel().getSelectedIndex();
+        loadFromFile();
+        lblMsg.setText("Persona actualizada con exito ");
+        lblMsg.setStyle("-fx-text-fill: green");
+        String name = txtName.getText();
+        String email = txtEmail.getText();
+        String edad = txtEdad.getText();
+        try{
+            service.updatePerson(index, name, email, edad);
+            txtName.clear();
+            txtEmail.clear();
+            txtEdad.clear();
+            loadFromFile();
+        }catch (IOException e){
+            lblMsg.setText("Hubo un error ");
+            lblMsg.setStyle("-fx-text-fill: red");
+
+        }catch (IllegalArgumentException ex){
+            lblMsg.setText(ex.getMessage());
             lblMsg.setStyle("-fx-text-fill: red");
         }
     }
 
-=======
->>>>>>> f904ef582e87db45768f78743f98609296d98ccb
     private void loadFromFile(){
         try{
             List<String> items = service.loadDataForList();
@@ -76,5 +100,11 @@ public class AppController {
             lblMsg.setText(e.getMessage());
             lblMsg.setStyle("-fx-text-fill: red");
         }
+    }
+    private void loadDataToForm(String item){
+        String[] parts = item.split("-");
+        txtName.setText(parts[0]);
+        txtEmail.setText(parts[1]);
+        txtEdad.setText(parts[2]);
     }
 }

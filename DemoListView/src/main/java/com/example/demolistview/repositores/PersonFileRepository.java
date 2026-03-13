@@ -5,10 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-<<<<<<< HEAD
 import java.nio.file.StandardOpenOption;
-=======
->>>>>>> f904ef582e87db45768f78743f98609296d98ccb
 import java.util.List;
 
 public class PersonFileRepository {
@@ -24,11 +21,12 @@ public class PersonFileRepository {
         ensureFileExist();
         return Files.readAllLines(filePath, StandardCharsets.UTF_8);
     }
-<<<<<<< HEAD
     public void appendNewLine(String line) throws IOException {
         Files.writeString(filePath, line+System.lineSeparator(),StandardCharsets.UTF_8,
                 StandardOpenOption.APPEND);
     }
-=======
->>>>>>> f904ef582e87db45768f78743f98609296d98ccb
+    public void appendAllLines(List<String> lines) throws IOException {
+        Files.write(filePath, lines, StandardCharsets.UTF_8,
+                StandardOpenOption.TRUNCATE_EXISTING);
+    }
 }
