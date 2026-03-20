@@ -1,13 +1,14 @@
 package com.example.demolistview.services;
 
-import com.example.demolistview.repositores.PersonFileRepository;
+
+import com.example.demolistview.repositories.PersonFileRepository;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PersonServices {
-    private PersonFileRepository repo = new PersonFileRepository();
+    private com.example.demolistview.repositories.PersonFileRepository repo = new PersonFileRepository();
 
     public List<String> loadDataForList() throws IOException {
         List<String> lines = repo.readAllLines(); //Recupera las lineas de archivo
@@ -42,6 +43,11 @@ public class PersonServices {
         repo.appendAllLines(lines);
     }
 
+    public void deletePerson(int index) throws IOException{
+        List<String> lines = getCleanLines();
+        lines.remove(index);
+        repo.appendAllLines(lines);
+    }
 
     private List<String> getCleanLines() throws IOException {
         List<String> lines =repo.readAllLines();

@@ -1,4 +1,4 @@
-package com.example.demolistview.repositores;
+package com.example.demolistview.repositories;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
